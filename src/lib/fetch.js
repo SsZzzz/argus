@@ -19,7 +19,7 @@ function fetch() {
                 (error) => {
                   if (url !== '/argus/uploadLog') {
                     tracker.send({
-                      class: 'fetch',
+                      category: 'fetch',
                       type: 'error',
                       url,
                       status: response.status, // 状态码
@@ -41,7 +41,7 @@ function fetch() {
           // 连接未连接上
           if (url !== '/argus/uploadLog') {
             tracker.send({
-              class: 'fetch',
+              category: 'fetch',
               type: 'load',
               url,
               duration: Date.now() - startTime,

@@ -11,7 +11,7 @@ function jsError() {
       // 脚本加载错误
       if (event.target?.src || event.target?.href) {
         tracker.send({
-          class: 'error',
+          category: 'error',
           type: 'resourceError', // js执行错误
           filename: event.target.src || event.target.href, // 哪个文件报错了
           tagName: event.target.tagName,
@@ -19,7 +19,7 @@ function jsError() {
         });
       } else {
         tracker.send({
-          class: 'error',
+          category: 'error',
           type: 'jsError', // js执行错误
           message: event.message, // 报错信息
           filename: event.filename, // 哪个文件报错了
@@ -55,7 +55,7 @@ function jsError() {
         stack = getLines(reason.stack);
       }
       tracker.send({
-        class: 'error', // 小类型，这是一个错误
+        category: 'error', // 小类型，这是一个错误
         type: 'promiseError', // js执行错误
         message, // 报错信息
         filename, // 哪个文件报错了

@@ -8,7 +8,7 @@ function pv() {
       const stayTime = Date.now() - startTime;
       tracker.send(
         {
-          class: 'pv',
+          category: 'pv',
           stayTime,
         },
         { immediately: true },

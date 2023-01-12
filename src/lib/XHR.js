@@ -14,7 +14,7 @@ function XHR() {
     const handler = (type) => (event) => {
       // 持续时间
       tracker.send({
-        class: 'xhr',
+        category: 'xhr',
         type,
         url: this.logData.url,
         status: this.status, // 状态码

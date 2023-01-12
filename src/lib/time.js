@@ -52,7 +52,7 @@ function timing() {
       //   load: loadEventEnd - loadEventStart, // onLoad事件耗时
       // });
       tracker.send({
-        class: 'time',
+        category: 'time',
         type: 'stageTime', // 统计每个阶段的时间
         startTime,
         unloadEventStart,
@@ -76,7 +76,7 @@ function timing() {
       });
       const resourceTime = performance.getEntriesByType('resource');
       tracker.send({
-        class: 'time',
+        category: 'time',
         type: 'resourceTime',
         // name,
         // initiatorType,
@@ -90,7 +90,7 @@ function timing() {
       let FP = performance.getEntriesByName('first-paint')[0];
       let FCP = performance.getEntriesByName('first-contentful-paint')[0];
       tracker.send({
-        class: 'time',
+        category: 'time',
         type: 'paintTime',
         firstPaint: FP?.startTime,
         firstContentfulPaint: FCP?.startTime,

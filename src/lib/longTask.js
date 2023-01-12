@@ -8,7 +8,7 @@ function longTask() {
       const lastEvent = getLastEvent();
       requestIdleCallback(() => {
         tracker.send({
-          class: 'longTask',
+          category: 'longTask',
           eventType: lastEvent.type,
           startTime: entry.startTime, // 开始时间
           duration: entry.duration, // 持续时间
