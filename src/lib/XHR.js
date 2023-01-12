@@ -20,9 +20,9 @@ function XHR() {
         status: this.status, // 状态码
         statusText: this.statusText, // 状态码
         duration: Date.now() - startTime,
-        response: this.response ? JSON.stringify(this.response) : '', // 响应体
+        response: this.response, // 响应体
         method: this.logData.method,
-        params: body || '', // 入参
+        params: body, // 入参
       });
     };
     this.addEventListener('load', handler('load'), false);

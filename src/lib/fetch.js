@@ -17,7 +17,7 @@ function fetch() {
                   responseResolve(result);
                 },
                 (error) => {
-                  if (url !== '/argusUploadLog') {
+                  if (url !== '/argus/uploadLog') {
                     tracker.send({
                       class: 'fetch',
                       type: 'error',
@@ -25,7 +25,7 @@ function fetch() {
                       status: response.status, // 状态码
                       statusText: response.statusText,
                       duration: Date.now() - startTime,
-                      response: error.stack ? JSON.stringify(error.stack) : '', // 响应体
+                      response: error.stack, // 响应体
                       method: options.method || 'get',
                       params: options.body, // 入参
                     });
@@ -39,13 +39,13 @@ function fetch() {
         },
         (error) => {
           // 连接未连接上
-          if (url !== '/argusUploadLog') {
+          if (url !== '/argus/uploadLog') {
             tracker.send({
               class: 'fetch',
               type: 'load',
               url,
               duration: Date.now() - startTime,
-              response: error.stack ? JSON.stringify(error.stack) : '', // 响应体
+              response: error.stack, // 响应体
               method: options.method || 'get',
               params: options.body, // 入参
             });
