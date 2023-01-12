@@ -78,23 +78,13 @@ function timing() {
       tracker.send({
         class: 'time',
         type: 'resourceTime',
-        resources: resourceTime.map(
-          ({
-            name,
-            initiatorType,
-            duration,
-            transferSize,
-            startTime,
-            responseEnd,
-          }) => ({
-            name,
-            initiatorType,
-            duration,
-            transferSize,
-            startTime,
-            responseEnd,
-          }),
-        ),
+        // name,
+        // initiatorType,
+        // duration,
+        // transferSize,
+        // startTime,
+        // responseEnd,
+        resources: resourceTime,
       });
       // 发送性能指标
       let FP = performance.getEntriesByName('first-paint')[0];
