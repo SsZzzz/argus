@@ -15,7 +15,7 @@ class Tracker {
       ...data,
       documentTitle: document.title,
       locationHref: location.href,
-      timestamp: Date.now(),
+      date: Date.now(),
     });
     if (immediately || this.list.length >= 5) {
       clearTimeout(this.timer);
@@ -28,7 +28,7 @@ class Tracker {
   }
 
   uploadLog() {
-    fetch('/argusUploadLog', {
+    fetch('/argus/uploadLog', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({
