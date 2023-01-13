@@ -15,7 +15,7 @@ class Tracker {
       ...data,
       documentTitle: document.title,
       locationHref: location.href,
-      date: Date.now(),
+      createTime: Date.now(),
     });
     if (immediately || this.list.length >= 5) {
       clearTimeout(this.timer);

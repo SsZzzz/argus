@@ -7,5 +7,10 @@ module.exports = merge(common, {
   devServer: {
     static: './test',
     open: true,
+    proxy: {
+      '/argus': {
+        target: 'http://localhost:7001',
+      },
+    },
   },
 });
