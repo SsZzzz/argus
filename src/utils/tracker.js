@@ -31,18 +31,14 @@ class Tracker {
     fetch('/argus/uploadLog', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      keepalive: true,
       body: JSON.stringify({
         basic: getBasicData(),
         list: this.list,
       }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.list = [];
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    }).finally(() => {
+      this.list = [];
+    });
   }
 }
 
