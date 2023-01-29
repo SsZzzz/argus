@@ -36,9 +36,8 @@ class Tracker {
         basic: getBasicData(),
         list: this.list,
       }),
-    }).finally(() => {
-      this.list = [];
     });
+    this.list = [];
   }
 }
 
