@@ -5,11 +5,11 @@ function pv() {
   window.addEventListener(
     'unload',
     () => {
-      const stayTime = Date.now() - startTime;
       tracker.send(
         {
           category: 'pv',
-          stayTime,
+          endTime: Date.now,
+          startTime,
         },
         { immediately: true },
       );
