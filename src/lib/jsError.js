@@ -12,7 +12,7 @@ function jsError() {
       if (event.target?.src || event.target?.href) {
         tracker.send({
           category: 'error',
-          type: 'resourceError', // js执行错误
+          type: 'resourceError', // 资源加载错误
           filename: event.target.src || event.target.href, // 哪个文件报错了
           tagName: event.target.tagName,
           selector: getSelector(event.target), // 代表最后一个操作的元素
