@@ -9,11 +9,11 @@ function pv() {
   function trackerSend() {
     tracker.send({
       category: 'pv',
-      endTime: Date.now,
+      endTime: Date.now(),
       startTime,
       locationHref: prevHref,
     });
-    startTime = Date.now;
+    startTime = Date.now();
     prevHref = location.href;
   }
 
@@ -39,7 +39,7 @@ function pv() {
       tracker.send(
         {
           category: 'pv',
-          endTime: Date.now,
+          endTime: Date.now(),
           startTime,
         },
         { immediately: true },
