@@ -12,10 +12,10 @@ class Tracker {
   send(data, options = {}) {
     const { immediately } = options;
     this.list.push({
-      ...data,
       documentTitle: document.title,
       locationHref: location.href,
       createTime: Date.now(),
+      ...data,
     });
     if (immediately || this.list.length >= 5) {
       clearTimeout(this.timer);
