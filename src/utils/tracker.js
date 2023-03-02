@@ -36,6 +36,8 @@ class Tracker {
         basic: getBasicData(),
         list: this.list,
       }),
+    }).catch((err) => {
+      console.log(err);
     });
     this.list = [];
   }

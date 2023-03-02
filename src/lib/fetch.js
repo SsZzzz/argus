@@ -7,8 +7,8 @@ function fetch() {
     const startTime = Date.now();
 
     return new Promise((resolve, reject) => {
-      originFetch.apply(this, [url, options]).then(
-        async (response) => {
+      originFetch.apply(window, [url, options]).then(
+        (response) => {
           const originResponseJson = response.json;
           response.json = function (...responseRest) {
             return new Promise((responseResolve, responseReject) => {
@@ -26,8 +26,8 @@ function fetch() {
                       statusText: response.statusText,
                       duration: Date.now() - startTime,
                       response: error.stack, // 响应体
-                      method: options.method || 'get',
-                      params: options.body, // 入参
+                      method: options?.method || 'get',
+                      params: options?.body, // 入参
                     });
                   }
                   responseReject(error);
@@ -46,8 +46,8 @@ function fetch() {
               url,
               duration: Date.now() - startTime,
               response: error.stack, // 响应体
-              method: options.method || 'get',
-              params: options.body, // 入参
+              method: options?.method || 'get',
+              params: options?.body, // 入参
             });
           }
           reject(error);

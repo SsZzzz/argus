@@ -20,12 +20,12 @@ function XHR() {
         status: this.status, // 状态码
         statusText: this.statusText, // 状态码
         duration: Date.now() - startTime,
-        response: this.response, // 响应体
+        response: this.response, // 响应体,如果response太大,可能导致failed to fetch
         method: this.logData.method,
         params: body, // 入参
       });
     };
-    this.addEventListener('load', handler('load'), false);
+    // this.addEventListener('load', handler('load'), false);
     this.addEventListener('error', handler('error'), false);
     this.addEventListener('abort', handler('abort'), false);
     return originSend.apply(this, arguments);

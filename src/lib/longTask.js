@@ -9,11 +9,11 @@ function longTask() {
       requestIdleCallback(() => {
         tracker.send({
           category: 'longTask',
-          eventType: lastEvent.type,
+          eventType: lastEvent?.type,
           startTime: entry.startTime, // 开始时间
           duration: entry.duration, // 持续时间
           selector: lastEvent
-            ? getSelector(lastEvent.path || lastEvent.target)
+            ? getSelector(lastEvent?.path || lastEvent?.target)
             : '',
         });
       });
