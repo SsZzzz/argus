@@ -23,7 +23,10 @@ class Tracker {
       this.uploadLog();
     } else if (this.timer === null) {
       // 这里不能直接写this.uploadLog,不然uploadLog的this是Timeout
-      this.timer = setTimeout(() => this.uploadLog(), 10000);
+      this.timer = setTimeout(() => {
+        this.uploadLog();
+        this.timer = null;
+      }, 10000);
     }
   }
 
