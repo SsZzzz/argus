@@ -17,7 +17,7 @@ class Tracker {
       createTime: Date.now(),
       ...data,
     });
-    if (immediately || this.list.length >= 5) {
+    if (immediately || this.list.length >= 10) {
       clearTimeout(this.timer);
       this.timer = null;
       this.uploadLog();
